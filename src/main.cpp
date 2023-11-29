@@ -4,6 +4,7 @@
 #include <string>
 #include "Label.h"
 #include "Button.h"
+#include "Sprite.h"
 
 #include <iostream>
 
@@ -18,7 +19,10 @@ public:
     TestButton(Label *label) : Button(100, 100, 150, 70, "Test"), label(label) {}
     void perform(Button *source)
     {
-        std::cout << "main";
+        Sprite *s = Sprite::CreateSprite(500, 500, 50, 50, sys.get_ren(), constants::gResPath + "images/bg.jpg");
+        s->setSize(100, 100);
+        s->setPosition(500, 500);
+        session.add(s);
     }
 
 private:

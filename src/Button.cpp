@@ -8,11 +8,11 @@ namespace CWing
 {
     Button::Button(int x, int y, int w, int h, std::string txt) : Component(x, y, w, h)
     {
-        SDL_Surface *surf = TTF_RenderText_Solid(system.get_font(), txt.c_str(), {0, 0, 0});
-        texture = SDL_CreateTextureFromSurface(system.get_ren(), surf);
+        SDL_Surface *surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), {0, 0, 0});
+        texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
         SDL_FreeSurface(surf);
-        upIcon = IMG_LoadTexture(system.get_ren(), (constants::gResPath + "images/bg.jpg").c_str());
-        downIcon = IMG_LoadTexture(system.get_ren(), (constants::gResPath + "images/bg.jpg").c_str());
+        upIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/bg.jpg").c_str());
+        downIcon = IMG_LoadTexture(sys.get_ren(), (constants::gResPath + "images/bg.jpg").c_str());
     }
 
     Button::~Button()
@@ -44,10 +44,10 @@ namespace CWing
     void Button::draw() const
     {
         if (isDown)
-            SDL_RenderCopy(system.get_ren(), downIcon, NULL, &getRect());
+            SDL_RenderCopy(sys.get_ren(), downIcon, NULL, &getRect());
         else
-            SDL_RenderCopy(system.get_ren(), upIcon, NULL, &getRect());
+            SDL_RenderCopy(sys.get_ren(), upIcon, NULL, &getRect());
 
-        SDL_RenderCopy(system.get_ren(), texture, NULL, &getRect());
+        SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
     }
 }

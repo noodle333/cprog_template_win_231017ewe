@@ -21,7 +21,7 @@ namespace CWing
         TTF_Font *font;
     };
 
-    extern System system;
+    extern System sys;
 }
 
 #endif

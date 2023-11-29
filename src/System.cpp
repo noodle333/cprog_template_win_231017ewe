@@ -29,6 +29,6 @@ namespace CWing
         return font;
     }
 
-    System system;
+    System sys;
 
 }
